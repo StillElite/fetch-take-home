@@ -1,18 +1,13 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Login } from './pages/Login';
 import { Search } from './pages/Search';
 import { useAuth } from './store/auth';
 
-function App() {
+export const App = () => {
   const isLoggedIn = useAuth((state) => state.isLoggedIn);
 
   return (
-    <Router>
+    <BrowserRouter basename='/fetch-take-home'>
       <Routes>
         <Route
           path='/'
@@ -23,8 +18,6 @@ function App() {
           element={isLoggedIn ? <Search /> : <Navigate to='/' />}
         />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-}
-
-export default App;
+};
