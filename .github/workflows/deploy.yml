@@ -1,3 +1,4 @@
+# .github/workflows/vite-deploy.yml
 name: Deploy Vite App to GitHub Pages
 
 on:
@@ -33,7 +34,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload build output
         uses: actions/upload-pages-artifact@v2
         with:
           path: './dist'
